@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mz-user-page
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mz-user-page
+  template:
+    metadata:
+      labels:
+        app: mz-user-page
+    spec:
+      containers:
+        - name: mz-user-page
+          image: mz-user-page:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mz-user-page
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 31007
+  selector:
+    app: mz-user-page

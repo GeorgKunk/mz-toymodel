@@ -1,0 +1,6 @@
+com/marktzeitung/authorizationserver/repository/UserRepository.class
+com/marktzeitung/authorizationserver/controller/UserController.class
+com/handelsblaettchen/authorizationserver/AuthorizationServerApplication.class
+com/marktzeitung/authorizationserver/config/AuthorizationServerConfig.class
+com/marktzeitung/authorizationserver/entity/User.class
+com/marktzeitung/authorizationserver/config/SecurityConfig.class

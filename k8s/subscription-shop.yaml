@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mz-subscription-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mz-subscription-shop
+  template:
+    metadata:
+      labels:
+        app: mz-subscription-shop
+    spec:
+      containers:
+        - name: mz-subscription-shop
+          image: mz-subscription-shop:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mz-subscription-shop
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 31008
+  selector:
+    app: mz-subscription-shop

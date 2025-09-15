@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mz-authorizationserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mz-authorizationserver
+  template:
+    metadata:
+      labels:
+        app: mz-authorizationserver
+    spec:
+      containers:
+        - name: mz-authorizationserver
+          image: mz-authorizationserver:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mz-authorizationserver
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31004
+  selector:
+    app: mz-authorizationserver

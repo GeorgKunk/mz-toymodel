@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mz-cms-editor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mz-cms-editor
+  template:
+    metadata:
+      labels:
+        app: mz-cms-editor
+    spec:
+      containers:
+        - name: mz-cms-editor
+          image: mz-cms-editor:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8055
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mz-cms-editor
+spec:
+  type: NodePort
+  ports:
+    - port: 8055
+      targetPort: 8055
+      nodePort: 31003
+  selector:
+    app: mz-cms-editor
