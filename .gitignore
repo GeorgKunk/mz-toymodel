@@ -1,0 +1,66 @@
+# Java
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+log/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# System
+Thumbs.db
+
+# Logs
+*.log
+
+# Virtualenv
+venv/
+ENV/
+.env/
+.envrc
+
+# Test
+htmlcov/
+.tox/
+.coverage
+.cache
+
+# Misc
+*.swp
+*.swo
+
+# Node
+node_modules/
+
+# Other
+*.bak
+*.tmp
+*.orig
+
